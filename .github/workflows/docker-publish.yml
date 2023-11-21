@@ -1,12 +1,13 @@
 name: Docker
 
 on:
-  schedule:
-    - cron: "39 3 * * *"
+  workflow_dispatch:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  pull_request_target:
+    types: [assigned, opened, synchronize, reopened]
 
 env:
   # Use docker.io for Docker Hub if empty
